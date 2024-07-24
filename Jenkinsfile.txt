@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Docker Image Build') {
             steps {
+                                # must use your docker credentials and tag.
                 sh 'docker image build  --no-cache -t janemils/jenkins-dock:v$BUILD_ID .'
                 sh 'docker image tag janemils/jenkins-dock:v$BUILD_ID janemils/jenkins-dock:v$BUILD_ID'
                 
@@ -17,6 +18,7 @@ pipeline {
         }
         stage('Docker Image Push') {
             steps {
+                # must use your docker credentials and tag.
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                         sh "docker login -u ${user} -p ${pass}"
                         sh 'docker push janemils/jenkins-dock:v$BUILD_ID'
