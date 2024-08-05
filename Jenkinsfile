@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Docker Image Build') {
             steps {
-                                # must use your docker credentials and tag.
+                                // must use your docker credentials and tag.
                 sh 'docker image build  --no-cache -t janemils/jenkins-dock:v$BUILD_ID .'
                 sh 'docker image tag janemils/jenkins-dock:v$BUILD_ID janemils/jenkins-dock:v$BUILD_ID'
                 
