@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Docker Image Push') {
             steps {
-                # must use your docker credentials and tag.
+                // must use your docker credentials and tag.
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                         sh "docker login -u ${user} -p ${pass}"
                         sh 'docker push janemils/jenkins-dock:v$BUILD_ID'
