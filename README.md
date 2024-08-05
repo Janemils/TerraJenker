@@ -1,5 +1,5 @@
 # Documentation for Using the TerraJenker Repo.
-Steps to use this repo.
+Steps to use this TerraJenker repo.
 
 1. Bring up a VM [Can be EC2 or any other VMs]. (Will automate this step soon in Terraform)
 2. Clone this repo in the VM.
